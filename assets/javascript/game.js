@@ -18,11 +18,11 @@ var lettersToGuess = null;
 //Lets the computer select a random letter from the available choices
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-//Allows the user 9 gueeses
-//Gueeses = guesses || 9
+//Allows the user 9 guesses
+//Guesses = guesses || 9
 var updateGuessesLeft = function() {
   // Here we are grabbing the HTML element and setting it equal to the guessesLeft. (i.e. guessesLeft will get displayed in HTML)
-  document.querySelector('guessLeft').innerHTML = "Guesses left: " + guessesLeft;
+  document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
 };
 
 var updateLetterToGuess = function() {
@@ -31,7 +31,7 @@ var updateLetterToGuess = function() {
 
 var updateGuessesSoFar = function() {
   // Here we take the guesses the user has tried -- then display it as letters separated by commas.
-  document.querySelector('#let').innerHTML = "Your Guesses so far: " + guessedletters.join(', ');
+  document.querySelector('#let').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
 };
 
 // Function will be called when we reset everything
@@ -50,7 +50,7 @@ updateGuessesLeft();
 
 //When key is released it become the users guess
 document.onkeyup = function(event) {
-    gueesesLeft--;
+    guessesLeft--;
   var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
   guessedLetters.push(userGuess);
@@ -61,7 +61,7 @@ document.onkeyup = function(event) {
       if (userGuess === letterToGuess) {
         wins++;
         document.querySelector('#wins').innerHTML = "Wins: " + wins;
-    	alert("Yes, you are psychic!");
+    	//alert("Yes, you are psychic!");
     	reset();
       }
     } else if(guessesLeft === 0) {
@@ -69,8 +69,8 @@ document.onkeyup = function(event) {
       //Then we will loss and we'll update the html to display the loss
       losses++;
       document.querySelector('#losses').innerHTML = "Losses: " + losses;
-      alert("Sorry, you're not pscyhic, maybe try again?");
-      
+      //alert("Sorry, you're not pscyhic, maybe try again?");
+
       //Then we'll call the reset.
       reset();
     }
