@@ -26,7 +26,7 @@ var updateGuessesLeft = function() {
 };
 
 var updateLetterToGuess = function() {
-  this.letterToGuess = this.computerChoices[Math.floor(Math.random() * this.computer.length)];
+  this.letterToGuess = this.computerChoices[Math.floor(Math.random() * this.computerChoices.length)];
 };
 
 var updateGuessesSoFar = function() {
@@ -45,7 +45,7 @@ var reset = function() {
   updateGuessesSoFar();
 }
 
-updateLetterToGuesses();
+updateLetterToGuess();
 updateGuessesLeft();
 
 //When key is released it become the users guess
@@ -58,19 +58,20 @@ document.onkeyup = function(event) {
   updateGuessesSoFar();
 
     if(guessesLeft > 0) {
-    	if (userGuess === letterToGuess) {
-    	  wins++;
-    	  document.querySelector('#wins').innerHTML = "Wins: " + wins;
-    	  alert("Yes, you are psychic!");
-    	  reset();
-    	} else if(guessesLeft === 0) {
-    		//Then we will loss and we'll update the html to display the loss
-    		losses++;
-    		document.querySelector('#losses').innerHTML = "Losses: " + losses;
-    		alert("Sorry, you're not pscyhic, maybe try again?");
-    		//Then we'll call the reset.
-    		reset();
+      if (userGuess === letterToGuess) {
+        wins++;
+        document.querySelector('#wins').innerHTML = "Wins: " + wins;
+    	alert("Yes, you are psychic!");
+    	reset();
+      }
+    } else if(guessesLeft === 0) {
 
-    	}
+      //Then we will loss and we'll update the html to display the loss
+      losses++;
+      document.querySelector('#losses').innerHTML = "Losses: " + losses;
+      alert("Sorry, you're not pscyhic, maybe try again?");
+      
+      //Then we'll call the reset.
+      reset();
     }
 };
