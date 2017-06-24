@@ -1,0 +1,19 @@
+/*
+// Created: June 23, 2017 7:35; PM
+// Author: Jonathan Gryn
+// Revisions: Jon (6/23/17) - added style	      
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: left;
+  font-family: "Times New Roman", Times, serif, "Georgia";
+}
+
+li {
+	list-style-type: none;
+}
